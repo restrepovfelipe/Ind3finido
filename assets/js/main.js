@@ -365,6 +365,7 @@ if (assembleEl) {
 (function initFlowerSequence() {
   const canvas = document.querySelector("[data-flower-sequence]");
   if (!canvas) return;
+  const canvasWrap = document.querySelector("[data-grow-scale]");
   const FRAME_COUNT = 80;
   const framePath = (i) => `/flower-sequence/frame_${String(i).padStart(3, "0")}.webp`;
   const ctx = canvas.getContext("2d");
@@ -401,6 +402,13 @@ if (assembleEl) {
         const bloomProgress = Math.min(1, progress / 0.5);
         const idx = Math.min(FRAME_COUNT - 1, Math.max(0, Math.floor(bloomProgress * FRAME_COUNT)));
         drawFrame(idx);
+        // grow the whole visual in scale alongside the frame, so it genuinely
+        // looks like it's emerging (small sprout) rather than a fixed-size
+        // window playing back footage of something that's already grown.
+        if (canvasWrap) {
+          const scale = 0.35 + 0.65 * bloomProgress;
+          canvasWrap.style.transform = `translateY(-50%) scale(${scale})`;
+        }
       },
       { target: growSection, offset: ["start end", "end start"] }
     );
