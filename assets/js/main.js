@@ -18,17 +18,19 @@ onScroll();
 /* ---------- Mobile nav toggle ---------- */
 const burger = document.getElementById("navBurger");
 const navLinks = document.getElementById("navLinks");
-burger.addEventListener("click", () => {
-  const open = navLinks.classList.toggle("is-open");
+function setMobileNavOpen(open) {
+  navLinks.classList.toggle("is-open", open);
   burger.classList.toggle("is-open", open);
   burger.setAttribute("aria-expanded", open ? "true" : "false");
+  // lock body scroll while the drawer is open so the page underneath can't
+  // scroll/repaint behind it (was causing page content to show through)
+  document.body.classList.toggle("no-scroll", open);
+}
+burger.addEventListener("click", () => {
+  setMobileNavOpen(!navLinks.classList.contains("is-open"));
 });
 navLinks.querySelectorAll("a").forEach((a) => {
-  a.addEventListener("click", () => {
-    navLinks.classList.remove("is-open");
-    burger.classList.remove("is-open");
-    burger.setAttribute("aria-expanded", "false");
-  });
+  a.addEventListener("click", () => setMobileNavOpen(false));
 });
 
 /* ---------- Smooth anchor scroll (accounts for fixed nav height) ---------- */
@@ -130,7 +132,6 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
   const svg = root.querySelector("[data-svg]");
   const cards = Array.from(root.querySelectorAll("[data-card]"));
   const business = root.querySelector("[data-business]");
-  const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
   const SVG_NS = "http://www.w3.org/2000/svg";
 
   let branchGlows = [];
@@ -152,10 +153,6 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
   }
 
   function build() {
-    if (!isDesktop()) {
-      clearSvg();
-      return;
-    }
     clearSvg();
     const rootRect = root.getBoundingClientRect();
     const w = rootRect.width;

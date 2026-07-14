@@ -31,6 +31,7 @@ body{
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
+body.no-scroll{ overflow:hidden; }
 img{ max-width:100%; display:block; }
 a{ color:inherit; text-decoration:none; }
 ul,ol{ margin:0; padding:0; list-style:none; }
@@ -345,7 +346,6 @@ p{ margin:0; }
   70%{ box-shadow: 0 0 0 14px rgba(141,184,58,0); }
   100%{ box-shadow: 0 0 0 0 rgba(141,184,58,0); }
 }
-.flowchart__mobile{ display:none; }
 @media (prefers-reduced-motion: reduce){
   .flowchart__business{ animation:none; }
   .flowchart__badge.is-loading{ animation:none; }
@@ -741,17 +741,20 @@ a.contact__row:hover{ border-color: var(--lime); transform: translateX(4px); }
   .industries__media{ max-width:100%; width:100%; }
 }
 @media (max-width: 900px){
+  /* keep the real connected-diagram look on mobile (cards + converging SVG
+     lines to "Tu Negocio") instead of falling back to a plain stacked list —
+     the build() measurements in main.js work at any layout since they read
+     actual element rects, so a 2-column grid "just works". */
   .flowchart{ height:auto; padding-bottom:8px; }
-  .flowchart__svg{ display:none; }
   .flowchart__nodes{
-    position:static; display:flex; flex-direction:column; gap:14px; align-items:center; pointer-events:auto;
+    position:relative; top:auto; left:auto; right:auto;
+    grid-template-columns: repeat(2, 1fr); gap:14px; margin-bottom:64px; pointer-events:auto;
   }
   .flowchart__card{
-    position:relative; width:100%; max-width:320px; padding:18px 20px 18px 46px; clip-path:none; border-radius:14px;
+    width:100%; max-width:none; min-height:118px; padding:16px 14px 40px 14px; clip-path:none; border-radius:14px;
   }
-  .flowchart__tag{ position:static; display:inline-block; margin-top:2px; }
-  .flowchart__mobile{ display:block; position:relative; width:2px; height:36px; margin:0 auto; background: rgba(141,184,58,.35); }
-  .flowchart__business{ position:static; transform:none; margin:0 auto; width:max-content; }
+  .flowchart__tag{ font-size:.74rem; padding:6px 10px; left:12px; bottom:12px; }
+  .flowchart__business{ position:relative; left:auto; right:auto; bottom:auto; margin:0 auto; }
 
   /* stack: drop the pinned/sticky trick and the card chrome on smaller screens — plain stacked sections instead */
   .stack__panel{
@@ -769,6 +772,7 @@ a.contact__row:hover{ border-color: var(--lime); transform: translateX(4px); }
   .nav__links{
     position:fixed; inset: 0 0 0 auto; width:min(78vw,320px); background: var(--black); flex-direction:column;
     align-items:flex-start; padding: 110px 32px 40px; gap:26px; transform: translateX(100%); transition: transform .35s var(--ease);
+    z-index:1001; isolation:isolate; overflow-y:auto;
   }
   .nav__links.is-open{ transform: translateX(0); }
   .nav__burger{ display:flex; }
