@@ -774,17 +774,14 @@ a.contact__row:hover{ border-color: var(--lime); transform: translateX(4px); }
   }
   .flowchart__business-icon{ width:18px; height:18px; font-size:.85rem; }
 
-  /* stack: drop the pinned/sticky trick and the card chrome on smaller screens — plain stacked sections instead */
-  .stack__panel{
-    position:static; height:auto; min-height:0; padding:0;
-    border-top:1px solid rgba(255,255,255,.06);
-  }
-  .stack__card{
-    border-radius:0; border:none; box-shadow:none; background:transparent; padding:70px 0;
-  }
-  .stack__inner{ grid-template-columns: 1fr; gap:36px; text-align:center; padding:0 24px; }
+  /* stack: keep the same sticky-stacking cover effect as desktop, just with a
+     single-column layout inside each card (text above visual) and tighter
+     padding to fit narrow screens. */
+  .stack__panel{ padding: 88px 16px 16px; }
+  .stack__card{ border-radius:24px; }
+  .stack__inner{ grid-template-columns: 1fr; gap:28px; text-align:center; padding:36px 24px; }
   .stack__visual{ order:-1; }
-  .stack__badge{ position:static; margin:0 auto 20px; }
+  .stack__badge{ width:52px; height:52px; left:20px; bottom:20px; font-size:.9rem; }
 }
 /* nav__scrim: full-screen blurred/dimmed backdrop shown behind the mobile
    dropdown menu — everything except the nav bar and the menu card itself
