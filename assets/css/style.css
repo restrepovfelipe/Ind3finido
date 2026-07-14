@@ -129,7 +129,10 @@ p{ margin:0; }
 .nav__links a:not(.nav__cta):hover::after, .nav__links a.is-active:not(.nav__cta)::after{ width:100%; }
 .nav__links a.is-active:not(.nav__cta){ opacity:1; color: var(--lime); }
 .nav__cta{ background: var(--lime); color:#12210a !important; padding:10px 20px; border-radius:999px; opacity:1 !important; }
-.nav__burger{ display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:8px; }
+.nav__burger{
+  display:none; position:relative; z-index:1002; flex-direction:column; gap:5px;
+  background:none; border:0; cursor:pointer; padding:8px;
+}
 .nav__burger span{ width:24px; height:2px; background: var(--white); border-radius:2px; transition: transform .3s, opacity .3s; }
 
 /* ===== hero ===== */
