@@ -167,7 +167,12 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
     const businessRect = business.getBoundingClientRect();
     const businessX = businessRect.left + businessRect.width / 2 - rootRect.left;
     const businessTop = businessRect.top - rootRect.top;
-    const trunkY = businessTop - 90;
+    // trunkY sits partway between the cards' bottom edge and the business pill —
+    // proportional to the actual gap (not a fixed px offset), so it still lands
+    // in the right place when that gap is small (e.g. the tighter mobile layout)
+    // instead of ending up above the cards.
+    const cardsBottom = Math.max(...cards.map((card) => card.getBoundingClientRect().bottom - rootRect.top));
+    const trunkY = cardsBottom + (businessTop - cardsBottom) * 0.45;
 
     const drawPaths = [];
     const cardXs = [];
