@@ -341,7 +341,7 @@ if (assembleEl) {
   const canvas = document.querySelector("[data-flower-sequence]");
   if (!canvas) return;
   const FRAME_COUNT = 80;
-  const framePath = (i) => `assets/img/flower-sequence/frame_${String(i).padStart(3, "0")}.webp`;
+  const framePath = (i) => `/flower-sequence/frame_${String(i).padStart(3, "0")}.webp`;
   const ctx = canvas.getContext("2d");
   const images = [];
   let loadedCount = 0;
