@@ -138,12 +138,14 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
   const SVG_NS = "http://www.w3.org/2000/svg";
 
   let branchGlows = [];
+  let busGlows = [];
   let dropGlow = null;
   let built = false;
 
   function clearSvg() {
     while (svg.firstChild) svg.removeChild(svg.firstChild);
     branchGlows = [];
+    busGlows = [];
     dropGlow = null;
     built = false;
   }
@@ -191,6 +193,13 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
       const glow = makePath("flowchart__glow");
       glow.setAttribute("d", d);
       branchGlows.push(glow);
+
+      // this card's own horizontal leg along the bus, from its vertical drop
+      // to the business pill's x — lets the pulse actually travel sideways
+      // instead of jumping straight from the vertical to the center drop.
+      const busGlow = makePath("flowchart__glow");
+      busGlow.setAttribute("d", `M${cx},${trunkY} L${businessX},${trunkY}`);
+      busGlows.push(busGlow);
     });
 
     // one shared horizontal bus line joining all the drops at trunkY
@@ -279,7 +288,10 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
       window.setTimeout(() => {
         if (badge) badge.className = "flowchart__badge is-done";
         const branchDuration = firePulse(branchGlows[i]);
-        window.setTimeout(() => firePulse(dropGlow), branchDuration * 1000 * 0.85);
+        window.setTimeout(() => {
+          const busDuration = firePulse(busGlows[i]);
+          window.setTimeout(() => firePulse(dropGlow), busDuration * 1000 * 0.85);
+        }, branchDuration * 1000 * 0.85);
         window.setTimeout(() => {
           if (badge) badge.className = "flowchart__badge";
           const isLast = i === cards.length - 1;
