@@ -810,8 +810,8 @@ a.contact__row:hover{ border-color: var(--lime); transform: translateX(4px); }
     transform: translateY(0) scale(1); opacity:1; visibility:visible;
     transition: transform .35s var(--ease), opacity .35s var(--ease), visibility 0s;
   }
-  .nav__links a{ font-size:1.15rem; }
-  .nav__links a.nav__cta{ margin-top:4px; }
+  .nav__links a{ font-family: var(--font-head); font-weight:700; font-size:2rem; }
+  .nav__links a.nav__cta{ margin-top:8px; font-size:1.05rem; padding:14px 24px; }
   .nav__burger{ display:flex; }
   .nav__burger.is-open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
   .nav__burger.is-open span:nth-child(2){ opacity:0; }
