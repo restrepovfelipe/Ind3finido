@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio — Ind3finido</title>
+<meta name="description" content="Proyectos reales de Ind3finido: MultaLibre, Casa La37, Andrés Tobón y Coordinación Electoral, más el caso a fondo de El Café de Don Edgar.">
+<link rel="icon" type="image/png" href="/assets/img/isotipo-lime.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="grain"></div>
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="nav" id="siteNav">
+  <div class="nav__inner">
+    <a href="/" class="nav__brand" aria-label="Ind3finido — inicio">
+      <img src="/assets/img/logotipo-white.png" alt="" class="nav__icon" aria-hidden="true">
+      <span>Ind<span class="accent">3</span>finido</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="/quienessomos/">Quiénes somos</a>
+      <a href="/#servicios">Servicios</a>
+      <a href="/#proceso">Proceso</a>
+      <a href="/portafolio/" class="is-active">Portafolio</a>
+      <a href="/#equipo">Equipo</a>
+      <a href="/#contacto" class="nav__cta" data-magnetic>Hablemos</a>
+    </nav>
+    <button class="nav__burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- PORTAFOLIO -->
+  <section class="section section--dark" id="top">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="tag">Portafolio</span>
+        <h1>Proyectos reales, <span class="accent">resultados reales.</span></h1>
+        <p>Nada de maquetas ni casos inventados — esto es lo que hemos construido para negocios reales, en producción, ahora mismo.</p>
+      </div>
+
+      <div class="works">
+        <div class="works__grid" data-works-grid>
+          <span class="works__cursor" data-works-cursor aria-hidden="true">Ver sitio ↗</span>
+
+          <a class="works__card works__card--lg reveal" href="https://multalibre.co" target="_blank" rel="noopener">
+            <img src="/assets/img/portfolio/multalibre.jpg" alt="MultaLibre — prescripción de fotomultas en Medellín" loading="lazy">
+            <span class="works__tagname"><span class="works__check">✓</span> MultaLibre</span>
+          </a>
+
+          <a class="works__card reveal" href="https://casa-la37.vercel.app" target="_blank" rel="noopener">
+            <img src="/assets/img/portfolio/casala37.jpg" alt="Casa La37 — portal de administración inmobiliaria" loading="lazy">
+            <span class="works__tagname"><span class="works__check">✓</span> Casa La37</span>
+          </a>
+
+          <a class="works__card reveal" href="https://andrestobon.co" target="_blank" rel="noopener">
+            <img src="/assets/img/portfolio/andrestobon.jpg" alt="Andrés Tobón — Concejal de Medellín" loading="lazy">
+            <span class="works__tagname"><span class="works__check">✓</span> Andrés Tobón</span>
+          </a>
+
+          <a class="works__card works__card--wide reveal" href="https://coordinacion-electoral.vercel.app" target="_blank" rel="noopener">
+            <img src="/assets/img/portfolio/coordinacionelectoral.jpg" alt="Coordinación Electoral — Abelardo de la Espriella 2026" loading="lazy">
+            <span class="works__tagname"><span class="works__check">✓</span> Coordinación Electoral</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="section__head reveal">
+        <span class="tag">Industrias</span>
+        <h2>No importa tu sector, <span class="accent">sabemos venderlo.</span></h2>
+        <p>Del restaurante de barrio a la campaña política más grande de Colombia — construimos para cualquier industria, sin plantillas genéricas.</p>
+      </div>
+
+      <div class="industries">
+        <div class="industries__list" data-industries-list>
+          <span class="industries__cursor" data-industries-cursor aria-hidden="true">Hablemos ↗</span>
+
+          <a class="industries__row reveal" href="/#contacto">
+            <div class="industries__label">
+              <span class="industries__num">01</span>
+              <span>Gastronomía &amp; retail</span>
+            </div>
+            <div class="industries__media industries__media--1" data-grow-width>
+              <div class="mockup mockup--menu">
+                <div class="mockup__row"><span>Café Americano</span><b>$6.500</b></div>
+                <div class="mockup__row"><span>Croissant</span><b>$5.200</b></div>
+                <div class="mockup__row"><span>Jugo natural</span><b>$4.800</b></div>
+                <div class="mockup__scan" aria-hidden="true"></div>
+              </div>
+            </div>
+          </a>
+
+          <a class="industries__row reveal" href="/#contacto">
+            <div class="industries__label">
+              <span class="industries__num">02</span>
+              <span>Salud &amp; bienestar</span>
+            </div>
+            <div class="industries__media industries__media--2" data-grow-width>
+              <div class="mockup mockup--booking">
+                <div class="mockup__cal" aria-hidden="true">
+                  <span>L</span><span>M</span><span>M</span><span class="is-active">J</span><span>V</span>
+                </div>
+                <div class="mockup__confirm"><span class="mockup__check">✓</span> Cita confirmada</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="industries__row reveal" href="/#contacto">
+            <div class="industries__label">
+              <span class="industries__num">03</span>
+              <span>Inmobiliario &amp; construcción</span>
+            </div>
+            <div class="industries__media industries__media--3" data-grow-width>
+              <div class="mockup mockup--listing">
+                <span class="mockup__badge">Disponible</span>
+                <b class="mockup__price">$450.000.000</b>
+                <span class="mockup__loc">El Poblado, Medellín</span>
+              </div>
+            </div>
+          </a>
+
+          <a class="industries__row reveal" href="/#contacto">
+            <div class="industries__label">
+              <span class="industries__num">04</span>
+              <span>Política &amp; campañas</span>
+            </div>
+            <div class="industries__media industries__media--4" data-grow-width>
+              <div class="mockup mockup--poll">
+                <div class="mockup__bar">
+                  <span class="mockup__bar-label">Candidato A</span>
+                  <div class="mockup__bar-track"><div class="mockup__bar-fill" style="--w:72%"></div></div>
+                </div>
+                <div class="mockup__bar">
+                  <span class="mockup__bar-label">Candidato B</span>
+                  <div class="mockup__bar-track"><div class="mockup__bar-fill" style="--w:48%"></div></div>
+                </div>
+                <div class="mockup__bar">
+                  <span class="mockup__bar-label">Candidato C</span>
+                  <div class="mockup__bar-track"><div class="mockup__bar-fill" style="--w:30%"></div></div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="section__head section__head--sub reveal">
+        <span class="tag">Caso destacado</span>
+        <h3>Un caso a fondo, <span class="accent">cuatro entregables.</span></h3>
+      </div>
+
+      <div class="showcase">
+        <div class="showcase__col" data-parallax="55">
+          <div class="showcase__card reveal" data-tilt>
+            <div class="showcase__bar"><span></span><span></span><span></span></div>
+            <div class="showcase__body showcase__body--brand">
+              <p class="showcase__wordmark">Don <span class="accent">Edgar</span></p>
+              <div class="showcase__swatches"><i style="background:#1A1A1A"></i><i style="background:#8DB83A"></i><i style="background:#F5F4F0"></i></div>
+              <span class="showcase__label">Brand Lifting</span>
+            </div>
+          </div>
+          <div class="showcase__card reveal" data-tilt>
+            <div class="showcase__bar"><span></span><span></span><span></span></div>
+            <div class="showcase__body">
+              <div class="showcase__line showcase__line--title"></div>
+              <div class="showcase__grid"><i></i><i></i><i></i><i></i></div>
+              <span class="showcase__label">Tienda online</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="showcase__center reveal">
+          <span class="case__tag">Proyecto Único</span>
+          <h3>Un caso real,<br>cuatro entregables.</h3>
+          <p>Así se ve el paquete completo que le entregamos a El Café de Don Edgar, en Ciudad Bolívar, Antioquia.</p>
+          <a href="/#contacto" class="btn btn--primary" data-magnetic>Quiero algo así</a>
+        </div>
+
+        <div class="showcase__col showcase__col--offset" data-parallax="95">
+          <div class="showcase__card reveal" data-tilt>
+            <div class="showcase__phone-notch"></div>
+            <div class="showcase__body showcase__body--chat">
+              <div class="showcase__bubble">¡Hola! ¿Tienen el combo de hoy? ☕</div>
+              <div class="showcase__bubble showcase__bubble--reply">Sí, claro. Te paso el catálogo 👇</div>
+              <span class="showcase__label">WhatsApp Business</span>
+            </div>
+          </div>
+          <div class="showcase__card reveal" data-tilt>
+            <div class="showcase__bar"><span></span><span></span><span></span></div>
+            <div class="showcase__body showcase__body--social">
+              <div class="showcase__avatar"></div>
+              <div class="showcase__line showcase__line--short"></div>
+              <div class="showcase__pill">Linktree</div>
+              <span class="showcase__label">Redes sociales</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case reveal">
+        <div class="case__info">
+          <span class="case__tag">Proyecto Único</span>
+          <h3>El Café de Don Edgar</h3>
+          <p class="case__loc">Ciudad Bolívar, Antioquia</p>
+          <p>Un negocio con historia y potencial que necesitaba consolidar su identidad y habilitar canales
+          digitales para vender más, sin perder su esencia paisa. Le entregamos un paquete integral con
+          enfoque práctico y resultados reales.</p>
+          <ul class="case__list">
+            <li>Brand Lifting: nuevo logo, paleta, tipografía y manual básico de marca</li>
+            <li>Tienda online con pasarela de pagos, SEO básico y Google My Business</li>
+            <li>WhatsApp Business con catálogo y respuestas automáticas</li>
+            <li>Redes sociales: bio, plantillas gráficas y Linktree</li>
+          </ul>
+        </div>
+        <div class="case__visual" aria-hidden="true">
+          <img src="/assets/img/isotipo-lime.png" alt="" data-parallax>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section quienes-cta">
+    <div class="container quienes-cta__inner">
+      <span class="tag reveal">¿Tu marca sigue?</span>
+      <h2 class="reveal">Hagamos tu <span class="accent">próximo caso real.</span></h2>
+      <a href="/#contacto" class="btn btn--primary reveal" data-magnetic>Hablemos por WhatsApp</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <img src="/assets/img/wordmark-white.png" alt="Ind3finido" class="footer__logo">
+    <p>Diseño, comunicación y estrategia · Medellín, Colombia</p>
+    <p class="footer__legal">© <span id="year"></span> Ind3finido. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>
