@@ -517,9 +517,14 @@ p{ margin:0; }
   display:flex; align-items:center; justify-content:flex-start; gap:40px;
   padding:30px 0; border-bottom:1px solid rgba(255,255,255,.12); cursor:pointer;
 }
-.industries__label{ display:flex; align-items:center; gap:14px; flex:0 0 220px; }
+.industries__label{ display:flex; align-items:center; gap:14px; flex:0 0 260px; }
+.industries__icon{
+  display:flex; align-items:center; justify-content:center; width:38px; height:38px; flex-shrink:0;
+  border-radius:10px; background: rgba(141,184,58,.12); color: var(--lime);
+}
+.industries__icon svg{ width:20px; height:20px; }
 .industries__num{ font-family: var(--font-head); color: var(--lime); font-weight:700; font-size:.9rem; }
-.industries__label span:last-child{ font-family: var(--font-head); font-weight:600; color: var(--white); font-size:1rem; }
+.industries__label span:last-child{ font-family: var(--font-head); font-weight:700; color: var(--white); font-size:1.35rem; line-height:1.25; }
 .industries__media{
   position:relative; flex:1; max-width:620px; aspect-ratio:16/10; border-radius: var(--radius-sm); overflow:hidden;
   border:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center;
@@ -745,6 +750,7 @@ a.contact__row:hover{ border-color: var(--lime); transform: translateX(4px); }
   .works__card{ aspect-ratio:16/10; }
   .works__card--lg, .works__card--wide{ grid-column: span 1; grid-row: span 1; }
   .industries__row{ flex-direction:column; align-items:flex-start; gap:16px; }
+  .industries__label{ flex:none; width:100%; }
   .industries__media{ max-width:100%; width:100%; }
 }
 @media (max-width: 900px){
@@ -778,10 +784,16 @@ a.contact__row:hover{ border-color: var(--lime); transform: translateX(4px); }
      single-column layout inside each card (text above visual) and tighter
      padding to fit narrow screens. */
   .stack__panel{ padding: 88px 16px 16px; }
-  .stack__card{ border-radius:24px; }
+  .stack__card{ border-radius:24px; flex-direction:column; overflow-y:auto; }
   .stack__inner{ grid-template-columns: 1fr; gap:28px; text-align:center; padding:36px 24px; }
   .stack__visual{ order:-1; }
-  .stack__badge{ width:52px; height:52px; left:20px; bottom:20px; font-size:.9rem; }
+  /* the badge used to float absolute at the bottom-left of the card, which
+     collided with the paragraph text once the layout went single-column and
+     the text could run long enough to reach that corner. Make it a normal
+     flow item pinned above everything else instead, so it can never overlap. */
+  .stack__badge{
+    position:static; order:-2; width:48px; height:48px; margin:20px auto 0; font-size:.9rem;
+  }
 }
 /* nav__scrim: full-screen blurred/dimmed backdrop shown behind the mobile
    dropdown menu — everything except the nav bar and the menu card itself
