@@ -170,13 +170,14 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
     const trunkY = businessTop - 90;
 
     const drawPaths = [];
+    const cardXs = [];
     cards.forEach((card) => {
       const r = card.getBoundingClientRect();
       const cx = r.left + r.width / 2 - rootRect.left;
       const cy = r.bottom - rootRect.top;
-      const bendY = cy + (trunkY - cy) * 0.6;
-      const mergeX = cx + (businessX - cx) * 0.25;
-      const d = `M${cx},${cy} L${cx},${bendY} L${mergeX},${trunkY} L${businessX},${trunkY}`;
+      cardXs.push(cx);
+      // straight drop from each card down to the shared trunk line — no diagonal bend
+      const d = `M${cx},${cy} L${cx},${trunkY}`;
       const line = makePath("flowchart__line");
       line.setAttribute("d", d);
       line.setAttribute("data-draw", "");
@@ -186,6 +187,13 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
       glow.setAttribute("d", d);
       branchGlows.push(glow);
     });
+
+    // one shared horizontal bus line joining all the drops at trunkY
+    const busD = `M${Math.min(...cardXs)},${trunkY} L${Math.max(...cardXs)},${trunkY}`;
+    const busLine = makePath("flowchart__line");
+    busLine.setAttribute("d", busD);
+    busLine.setAttribute("data-draw", "");
+    drawPaths.push(busLine);
 
     const dropD = `M${businessX},${trunkY} L${businessX},${businessTop}`;
     const dropLine = makePath("flowchart__line");
@@ -433,8 +441,12 @@ function tilt(el, max = 8) {
 document.querySelectorAll("[data-tilt]").forEach((el) => tilt(el));
 
 /* ---------- Scroll-linked parallax ---------- */
+/* Desktop-only: on narrow/reflowed mobile layouts the vertical spacing this
+   relies on doesn't hold, and the translate can overshoot into content
+   above it (e.g. the showcase columns overlapping the case-study text). */
 document.querySelectorAll("[data-parallax]").forEach((el) => {
   if (prefersReducedMotion) return;
+  if (!window.matchMedia("(min-width: 981px)").matches) return;
   const strength = Number(el.dataset.parallax) || 40;
   const container = el.closest(".showcase") || el.closest("section") || el.parentElement;
   scroll(animate(el, { y: [0, -strength] }, { easing: "linear" }), {
