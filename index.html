@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ind3finido — Diseño, comunicación y estrategia sin enredos</title>
+<meta name="description" content="Estudio creativo en Medellín. Branding, diseño web/UX, redes sociales y estrategia de marca. Tu marca no necesita complicarse.">
+<link rel="icon" type="image/png" href="assets/img/isotipo-lime.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="grain"></div>
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<header class="nav" id="siteNav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand" aria-label="Ind3finido — inicio">
+      <img src="assets/img/logotipo-white.png" alt="" class="nav__icon" aria-hidden="true">
+      <span>Ind<span class="accent">3</span>finido</span>
+    </a>
+    <nav class="nav__links" id="navLinks">
+      <a href="/quienessomos/">Quiénes somos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Proceso</a>
+      <a href="/portafolio/">Portafolio</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto" class="nav__cta" data-magnetic>Hablemos</a>
+    </nav>
+    <button class="nav__burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="hero__pattern" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow reveal">Estudio de diseño · comunicación · estrategia — Medellín, Colombia</p>
+      <h1 class="hero__title">
+        <span class="reveal" style="--d:0">Tu marca no</span>
+        <span class="reveal" style="--d:1">necesita</span>
+        <span class="reveal hero__title--accent" style="--d:2">complicarse<span class="accent">.</span></span>
+      </h1>
+      <p class="hero__lead reveal" style="--d:3">
+        Somos Emiliana, Felipe y Carolina: comunicación, estrategia y diseño trabajando juntos
+        para que tu negocio crezca <strong>sin enredos</strong>.
+      </p>
+      <div class="hero__actions reveal" style="--d:4">
+        <a href="#contacto" class="btn btn--primary" data-magnetic>Hablemos por WhatsApp</a>
+        <a href="#servicios" class="btn btn--ghost" data-magnetic>Ver servicios</a>
+      </div>
+      <p class="hero__proof reveal" style="--d:5">
+        <span class="hero__proof-dot" aria-hidden="true"></span>
+        Esta misma página es un ejemplo real de nuestro trabajo en diseño y desarrollo web.
+      </p>
+    </div>
+    <div class="hero__isotipo" aria-hidden="true" data-parallax data-assemble></div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Sin enredos ✦ Diseño ✦ Comunicación ✦ Estrategia ✦ UX ✦ Branding ✦ Sin enredos ✦ Diseño ✦ Comunicación ✦ Estrategia ✦ UX ✦ Branding ✦</span>
+      <span>Sin enredos ✦ Diseño ✦ Comunicación ✦ Estrategia ✦ UX ✦ Branding ✦ Sin enredos ✦ Diseño ✦ Comunicación ✦ Estrategia ✦ UX ✦ Branding ✦</span>
+    </div>
+  </div>
+
+  <!-- CRECE -->
+  <section class="grow" id="crece">
+    <canvas class="grow__canvas" data-flower-sequence aria-hidden="true"></canvas>
+    <div class="container">
+      <div class="grow__inner">
+        <span class="tag reveal">Crecimiento</span>
+        <h2 class="reveal">Deja que tu negocio <span class="accent">florezca.</span></h2>
+        <p class="reveal">Del primer boceto a una marca en su punto — así de real es el crecimiento que
+        buscamos para ti. Sin enredos, a tu ritmo.</p>
+        <a href="#contacto" class="btn btn--primary reveal" data-magnetic>Hablemos por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section section--dark" id="servicios">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="tag">01 — Servicios</span>
+        <h2>Todo lo que tu marca necesita, <span class="accent">bajo un mismo techo.</span></h2>
+        <p>Diseño, desarrollo y estrategia trabajando como un solo equipo — para que tu marca no solo se vea bien, sino que venda.</p>
+      </div>
+
+      <div class="flowchart" data-flowchart>
+        <div class="flowchart__nodes">
+          <div class="flowchart__card reveal" data-tilt data-card>
+            <span class="flowchart__badge" data-badge aria-hidden="true"></span>
+            <span class="flowchart__tag">Diseño Web &amp; UX</span>
+          </div>
+          <div class="flowchart__card reveal" data-tilt data-card>
+            <span class="flowchart__badge" data-badge aria-hidden="true"></span>
+            <span class="flowchart__tag">Branding &amp; Marca</span>
+          </div>
+          <div class="flowchart__card reveal" data-tilt data-card>
+            <span class="flowchart__badge" data-badge aria-hidden="true"></span>
+            <span class="flowchart__tag">Redes &amp; Contenido</span>
+          </div>
+          <div class="flowchart__card reveal" data-tilt data-card>
+            <span class="flowchart__badge" data-badge aria-hidden="true"></span>
+            <span class="flowchart__tag">WhatsApp &amp; Soporte</span>
+          </div>
+        </div>
+        <svg class="flowchart__svg" data-svg preserveAspectRatio="none" aria-hidden="true"></svg>
+        <div class="flowchart__mobile" aria-hidden="true">
+          <div class="flowchart__mobile-line"></div>
+        </div>
+        <div class="flowchart__business reveal" data-business>
+          <span class="flowchart__business-icon">+</span> Tu Negocio
+        </div>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar pillar--featured reveal" data-tilt>
+          <span class="pillar__badge">Nuestro fuerte</span>
+          <div class="pillar__mockup" aria-hidden="true">
+            <div class="pillar__mockup-bar"><span></span><span></span><span></span></div>
+            <div class="pillar__mockup-body">
+              <div class="pillar__mockup-line pillar__mockup-line--title"></div>
+              <div class="pillar__mockup-line"></div>
+              <div class="pillar__mockup-line pillar__mockup-line--short"></div>
+              <div class="pillar__mockup-cursor"></div>
+            </div>
+          </div>
+          <span class="pillar__num">01</span>
+          <h3>Diseño UX/UI &amp; web</h3>
+          <p>Landing pages, plataformas transaccionales y tiendas online, responsivas, animadas y fáciles de administrar. <strong>Esta página que ves ahora es un ejemplo real.</strong></p>
+        </div>
+        <div class="pillar reveal" data-tilt>
+          <span class="pillar__num">02</span>
+          <h3>Branding &amp; identidad visual</h3>
+          <p>Logo, paleta, tipografía, manual de marca y sistema gráfico aplicado a cada punto de contacto.</p>
+        </div>
+        <div class="pillar reveal" data-tilt>
+          <span class="pillar__num">03</span>
+          <h3>Comunicación &amp; redes sociales</h3>
+          <p>Estrategia, contenido audiovisual y gestión de Facebook, Instagram, TikTok y YouTube.</p>
+        </div>
+        <div class="pillar reveal" data-tilt>
+          <span class="pillar__num">04</span>
+          <h3>WhatsApp Business &amp; soporte</h3>
+          <p>Catálogo, respuestas automáticas, integración con tus canales y soporte técnico continuo.</p>
+        </div>
+      </div>
+
+      <div class="pricing reveal">
+        <div class="pricing__tabs" role="tablist" aria-label="Planes de servicio">
+          <button class="pricing__tab is-active" role="tab" aria-selected="true" data-plan="integral">Cliente Integral <span>con retainer</span></button>
+          <button class="pricing__tab" role="tab" aria-selected="false" data-plan="unico">Proyecto Único <span>sin retainer</span></button>
+        </div>
+
+        <!-- PLAN INTEGRAL -->
+        <div class="pricing__panel is-active" data-panel="integral">
+          <div class="pricing__col">
+            <h4>Recurrente mensual</h4>
+            <ul class="pricing__list">
+              <li><div><strong>Estrategia y Redes Sociales</strong><span>Gestión estratégica de Facebook, Instagram y TikTok</span></div><b>$1.200.000<small>/mes</small></b></li>
+              <li><div><strong>Contenido Audiovisual</strong><span>15–18 piezas/mes para FB, IG, TikTok y YouTube</span></div><b>$1.800.000<small>/mes</small></b></li>
+            </ul>
+            <div class="pricing__total">
+              <span>Total recurrente mensual</span>
+              <b><span class="js-count" data-value="3000000">$0</span> <small>COP/mes</small></b>
+            </div>
+            <p class="pricing__note">Se factura desde el mes 2 en adelante, mientras el cliente esté activo.</p>
+          </div>
+          <div class="pricing__col">
+            <h4>Pago único (paquete completo)</h4>
+            <ul class="pricing__list">
+              <li><div><strong>Manual de Marca e Identidad Visual</strong><span>3–4 semanas</span></div><b>$3.000.000</b></li>
+              <li><div><strong>Landing Page &amp; Plataforma Web</strong><span>3–4 semanas · dominio y servidor por cuenta del cliente</span></div><b>$4.000.000</b></li>
+              <li><div><strong>WhatsApp Business &amp; Soporte Técnico</strong><span>1–2 semanas · membresía mensual opcional $50.000</span></div><b>$800.000</b></li>
+            </ul>
+            <div class="pricing__total">
+              <span>Total pago único</span>
+              <b><span class="js-count" data-value="7800000">$0</span> <small>COP</small></b>
+            </div>
+            <p class="pricing__note">Se cobra en el mes de firma, junto con el mes 1 recurrente.</p>
+          </div>
+          <div class="pricing__grand">
+            <span>Total primera factura — Cliente Integral</span>
+            <b><span class="js-count" data-value="10800000">$0</span> <small>COP</small></b>
+          </div>
+        </div>
+
+        <!-- PLAN UNICO -->
+        <div class="pricing__panel" data-panel="unico">
+          <div class="pricing__col pricing__col--full">
+            <h4>Proyecto cerrado, sin mensualidad después</h4>
+            <ul class="pricing__list">
+              <li><div><strong>Brand Lifting / Rebranding</strong><span>Rediseño de logo, paleta, tipografía y manual básico · 3–4 semanas</span></div><b>$4.500.000</b></li>
+              <li><div><strong>WhatsApp Business — Setup</strong><span>Configuración, catálogo y respuestas automáticas · 1 semana</span></div><b>$1.000.000</b></li>
+              <li><div><strong>E-Commerce / Tienda Online</strong><span>Web con pasarela de pagos, SEO básico y Google My Business · 3–4 semanas</span></div><b>$5.500.000</b></li>
+              <li><div><strong>Redes Sociales — Setup inicial</strong><span>Bio, plantillas gráficas y Linktree · 1 semana</span></div><b>$500.000</b></li>
+            </ul>
+            <div class="pricing__grand">
+              <span>Total Proyecto Único</span>
+              <b><span class="js-count" data-value="11500000">$0</span> <small>COP</small></b>
+            </div>
+            <p class="pricing__note">50% anticipo al firmar / 50% contra entrega final. No genera recurrencia.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="section" id="proceso">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="tag">02 — Proceso</span>
+        <h2>De la idea a la entrega, <span class="accent">sin vueltas.</span></h2>
+        <p>Cuatro pasos, fechas claras y comunicación constante — así avanza tu proyecto, sin sorpresas ni silencios largos.</p>
+      </div>
+      <div class="proceso__grid">
+        <div class="timeline__wrap" data-timeline>
+        <div class="timeline__track" aria-hidden="true"><div class="timeline__progress" data-timeline-progress></div></div>
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__marker">1</span>
+            <div><h3>Propuesta &amp; brief</h3><p>Revisamos tu negocio y te presentamos una propuesta a la medida. Brief de marca y recopilación de información.</p></div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__marker">2</span>
+            <div><h3>Firma &amp; anticipo</h3><p>Acuerdo firmado y 50% de anticipo. Arrancamos con fechas claras desde el día uno.</p></div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__marker">3</span>
+            <div><h3>Ejecución</h3><p>3 a 9 semanas de trabajo en paralelo — branding, web, WhatsApp y redes — con comunicación constante.</p></div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__marker">4</span>
+            <div><h3>Entrega &amp; saldo</h3><p>Entrega final, saldo restante y, si aplica, arranque del servicio recurrente de redes y contenido.</p></div>
+          </li>
+        </ol>
+        </div>
+        <div class="proceso__visual reveal" data-tilt>
+          <img src="assets/img/proceso-photo.jpg" alt="Sitio web de Ind3finido mostrado en una tablet" data-parallax>
+          <p class="proceso__caption">Esta misma página, de la idea a la pantalla.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section class="section" id="equipo">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="tag">03 — Equipo</span>
+        <h2>Las tres disciplinas <span class="accent">detrás del logo.</span></h2>
+        <p>Comunicación, diseño y estrategia en un solo equipo — para que no tengas que coordinar tres proveedores distintos.</p>
+      </div>
+      <div class="team">
+        <div class="team__card reveal" data-tilt>
+          <span class="team__initial">E</span>
+          <h3>Emiliana</h3>
+          <p class="team__role">Estrategia &amp; redes sociales</p>
+          <p>Asesoría estratégica en Facebook, Instagram y TikTok. Análisis de métricas, comportamiento de
+          audiencia y planeación de contenido orgánico enfocado en crecimiento e interacción.</p>
+        </div>
+        <div class="team__card reveal" data-tilt>
+          <span class="team__initial">F</span>
+          <h3>Felipe</h3>
+          <p class="team__role">UX/UI &amp; desarrollo</p>
+          <p>Economista y abogado con expertise en experiencia de usuario. Landing pages, plataformas
+          transaccionales, automatización de WhatsApp Business, soporte técnico y producción fotográfica.</p>
+        </div>
+        <div class="team__card reveal" data-tilt>
+          <span class="team__initial">C</span>
+          <h3>Carolina</h3>
+          <p class="team__role">Diseño &amp; contenido audiovisual</p>
+          <p>Identidad visual, manuales de marca y piezas gráficas. Conceptualización, guion, grabación y
+          dirección de contenido para Facebook, Instagram, TikTok y YouTube.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section section--dark" id="contacto">
+    <div class="container contact">
+      <div class="section__head reveal">
+        <span class="tag">04 — Contacto</span>
+        <h2>¿Listo para crecer <span class="accent">sin enredarte?</span></h2>
+        <p class="contact__lead">Cuéntanos de tu negocio y te respondemos por WhatsApp. Link en la bio. Sin vueltas.</p>
+      </div>
+
+      <div class="contact__grid">
+        <form class="contact__form reveal" id="contactForm">
+          <label>Nombre
+            <input type="text" name="nombre" id="fNombre" required placeholder="¿Cómo te llamas?">
+          </label>
+          <label>Negocio
+            <input type="text" name="negocio" id="fNegocio" placeholder="Nombre de tu marca o negocio">
+          </label>
+          <label>Cuéntanos qué necesitas
+            <textarea name="mensaje" id="fMensaje" rows="4" required placeholder="Branding, web, redes, WhatsApp Business..."></textarea>
+          </label>
+          <button type="submit" class="btn btn--primary btn--block" data-magnetic>Enviar por WhatsApp</button>
+        </form>
+
+        <div class="contact__details reveal">
+          <a class="contact__row" href="https://wa.me/573143854788" target="_blank" rel="noopener">
+            <span>WhatsApp</span><strong>+57 314 385 4788</strong>
+          </a>
+          <a class="contact__row" href="mailto:ind3finido@gmail.co">
+            <span>Email</span><strong>ind3finido@gmail.co</strong>
+          </a>
+          <a class="contact__row" href="https://www.ind3finido.co" target="_blank" rel="noopener">
+            <span>Web</span><strong>www.ind3finido.co</strong>
+          </a>
+          <div class="contact__row">
+            <span>Ubicación</span><strong>Diag 47a #31-03, Medellín, Colombia</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <img src="assets/img/wordmark-white.png" alt="Ind3finido" class="footer__logo">
+    <p>Diseño, comunicación y estrategia · Medellín, Colombia</p>
+    <p class="footer__legal">© <span id="year"></span> Ind3finido. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
