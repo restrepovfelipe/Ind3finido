@@ -744,20 +744,31 @@ a.contact__row:hover{ border-color: var(--lime); transform: translateX(4px); }
   .industries__media{ max-width:100%; width:100%; }
 }
 @media (max-width: 900px){
-  /* keep the real connected-diagram look on mobile (cards + converging SVG
-     lines to "Tu Negocio") instead of falling back to a plain stacked list —
-     the build() measurements in main.js work at any layout since they read
-     actual element rects, so a 2-column grid "just works". */
+  /* keep the EXACT same layout as desktop (4 cards in a row, converging SVG
+     lines into "Tu Negocio") just scaled down to fit — not a reflowed grid.
+     The build() measurements in main.js work at any layout since they read
+     actual element rects, so shrinking the cards in place "just works". */
   .flowchart{ height:auto; padding-bottom:8px; }
   .flowchart__nodes{
     position:relative; top:auto; left:auto; right:auto;
-    grid-template-columns: repeat(2, 1fr); gap:14px; margin-bottom:64px; pointer-events:auto;
+    grid-template-columns: repeat(4, 1fr); gap:8px; margin-bottom:56px; pointer-events:auto;
   }
   .flowchart__card{
-    width:100%; max-width:none; min-height:118px; padding:16px 14px 40px 14px; clip-path:none; border-radius:14px;
+    width:100%; max-width:none; min-height:92px; padding:8px 6px 26px;
+    border-radius:10px 10px 10px 4px;
+    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%);
   }
-  .flowchart__tag{ font-size:.74rem; padding:6px 10px; left:12px; bottom:12px; }
-  .flowchart__business{ position:relative; left:auto; right:auto; bottom:auto; margin:0 auto; }
+  .flowchart__badge{ width:16px; height:16px; top:6px; left:6px; }
+  .flowchart__badge.is-done::after{ width:7px; height:4px; }
+  .flowchart__tag{
+    left:5px; right:5px; bottom:6px; font-size:.56rem; line-height:1.15;
+    padding:4px 5px; white-space:normal; text-align:center; border-radius:6px;
+  }
+  .flowchart__business{
+    position:relative; left:auto; right:auto; bottom:auto; margin:0 auto;
+    font-size:.85rem; padding:12px 20px;
+  }
+  .flowchart__business-icon{ width:18px; height:18px; font-size:.85rem; }
 
   /* stack: drop the pinned/sticky trick and the card chrome on smaller screens — plain stacked sections instead */
   .stack__panel{
