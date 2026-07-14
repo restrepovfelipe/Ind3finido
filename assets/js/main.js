@@ -18,12 +18,14 @@ onScroll();
 /* ---------- Mobile nav toggle ---------- */
 const burger = document.getElementById("navBurger");
 const navLinks = document.getElementById("navLinks");
+const navScrim = document.getElementById("navScrim");
 function setMobileNavOpen(open) {
   navLinks.classList.toggle("is-open", open);
   burger.classList.toggle("is-open", open);
   burger.setAttribute("aria-expanded", open ? "true" : "false");
-  // lock body scroll while the drawer is open so the page underneath can't
-  // scroll/repaint behind it (was causing page content to show through)
+  if (navScrim) navScrim.classList.toggle("is-open", open);
+  // lock body scroll while the menu is open so the page underneath can't
+  // scroll/repaint behind it
   document.body.classList.toggle("no-scroll", open);
 }
 burger.addEventListener("click", () => {
@@ -32,6 +34,7 @@ burger.addEventListener("click", () => {
 navLinks.querySelectorAll("a").forEach((a) => {
   a.addEventListener("click", () => setMobileNavOpen(false));
 });
+if (navScrim) navScrim.addEventListener("click", () => setMobileNavOpen(false));
 
 /* ---------- Smooth anchor scroll (accounts for fixed nav height) ---------- */
 document.querySelectorAll('a[href^="#"]').forEach((a) => {
