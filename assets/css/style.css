@@ -94,16 +94,27 @@ p{ margin:0; }
   padding: 16px 24px;
 }
 .nav__inner{
-  display:flex; align-items:center; justify-content:space-between;
+  position:relative; display:flex; align-items:center; justify-content:space-between;
   max-width: var(--container); margin:0 auto;
-  background: rgba(20,20,20,.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-  border:1px solid rgba(255,255,255,.09); border-radius:999px;
+  border-radius:999px;
   padding:10px 10px 10px 22px;
-  box-shadow: 0 14px 34px rgba(0,0,0,.28);
-  transition: background .3s var(--ease), padding .3s var(--ease), box-shadow .3s var(--ease);
+  transition: padding .3s var(--ease);
 }
-.nav.is-scrolled .nav__inner{
-  background: rgba(14,14,14,.78); padding:8px 8px 8px 22px;
+/* The pill's background/blur live on a ::before (not on .nav__inner itself) because
+   backdrop-filter creates a new containing block for position:fixed descendants —
+   with it directly on .nav__inner, the mobile #navLinks drawer (position:fixed,
+   meant to cover the full viewport) was instead confined to the nav pill's own
+   small box, rendering as a tiny dark square instead of a full-screen panel. */
+.nav__inner::before{
+  content:""; position:absolute; inset:0; z-index:-1; border-radius:inherit;
+  background: rgba(20,20,20,.55); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+  border:1px solid rgba(255,255,255,.09);
+  box-shadow: 0 14px 34px rgba(0,0,0,.28);
+  transition: background .3s var(--ease), box-shadow .3s var(--ease);
+}
+.nav.is-scrolled .nav__inner{ padding:8px 8px 8px 22px; }
+.nav.is-scrolled .nav__inner::before{
+  background: rgba(14,14,14,.78);
   box-shadow: 0 10px 26px rgba(0,0,0,.4);
 }
 .nav__brand{ display:flex; align-items:center; gap:10px; font-family: var(--font-head); font-weight:700; font-size:1.15rem; color: var(--white); }
