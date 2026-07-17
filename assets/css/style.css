@@ -359,6 +359,53 @@ p{ margin:0; text-wrap: pretty; }
   display:inline-block; font-family: var(--font-head); font-size:.82rem; letter-spacing:.06em; text-transform:uppercase;
   color: var(--lime); border:1px solid rgba(141,184,58,.4); padding:8px 16px; border-radius:999px; margin-bottom:28px;
 }
+
+/* Kinetic hero phrase — a single sentence with a bracketed word that cycles
+   through the studio's four service outcomes (marcas / webs / contenido /
+   crecimiento). Replaces the generic "estudio de diseño · comunicación …"
+   agency-chip pattern. Rotator is an inline-grid: all words share the same
+   grid cell (1/1), so the container auto-sizes to the widest word and no
+   layout jitter occurs during swaps. */
+.hero__phrase{
+  font-family: var(--font-head); font-weight:600;
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  color: rgba(255,255,255,.88);
+  margin-bottom: 32px;
+  max-width: 44ch;
+  line-height: 1.35;
+}
+.hero__rotator{
+  display: inline-grid;
+  vertical-align: baseline;
+  color: var(--lime);
+  overflow: hidden;
+  padding: 0 .05em; /* accommodate italic-like descender room for blur */
+}
+.hero__rotator-word{
+  grid-column: 1; grid-row: 1;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(70%) scale(.94);
+  filter: blur(6px);
+  transition:
+    opacity .5s cubic-bezier(.16,.8,.24,1),
+    transform .55s cubic-bezier(.16,.8,.24,1),
+    filter .5s cubic-bezier(.16,.8,.24,1);
+}
+.hero__rotator-word.is-active{
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+.hero__rotator-word.is-leaving{
+  opacity: 0;
+  transform: translateY(-70%) scale(.94);
+  filter: blur(6px);
+}
+@media (prefers-reduced-motion: reduce){
+  .hero__rotator-word{ transition: none; }
+}
+.perf-lite .hero__rotator-word{ transition: none; filter: none; }
 .hero__title{ font-size: clamp(2.6rem, 7vw, 5.4rem); display:flex; flex-direction:column; gap:2px; letter-spacing: -.015em; }
 .hero__title > span{ display:block; }
 .hero__title--accent{ color: var(--lime); font-style: normal; }

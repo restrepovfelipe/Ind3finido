@@ -377,6 +377,30 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
   }
 })();
 
+/* ---------- Hero phrase word rotator ----------
+   Cycles the bracketed word in "Diseñamos [X] sin enredos." every 2.6s with
+   a blur+slide swap. Static "marcas" stays visible under reduced-motion —
+   the sentence still reads. Under perf-lite the cycle still runs but CSS
+   drops the blur filter. */
+(function initHeroRotator() {
+  if (prefersReducedMotion) return;
+  const rotator = document.querySelector("[data-rotator]");
+  if (!rotator) return;
+  const words = Array.from(rotator.querySelectorAll(".hero__rotator-word"));
+  if (words.length < 2) return;
+  let current = 0;
+  setInterval(() => {
+    const prev = current;
+    current = (current + 1) % words.length;
+    words[prev].classList.remove("is-active");
+    words[prev].classList.add("is-leaving");
+    words[current].classList.add("is-active");
+    // clear the leaving flag after the transition so the same word can
+    // re-enter cleanly on the next cycle
+    setTimeout(() => words[prev].classList.remove("is-leaving"), 600);
+  }, 2600);
+})();
+
 /* ---------- Hero entrance (plays on load, not on scroll) ----------
    The hero H1 gets a word-by-word blur+slide reveal for premium feel; other
    hero reveals (eyebrow, lead paragraph, CTAs, proof line) use the original
