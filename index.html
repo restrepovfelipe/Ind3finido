@@ -10,6 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<script>(function(){var d=document.documentElement,l=false;var c=navigator.connection||navigator.mozConnection||navigator.webkitConnection;if(c){if(c.saveData)l=true;if(c.effectiveType&&/(^|-)(2g|slow-2g)$/.test(c.effectiveType))l=true;}if(navigator.deviceMemory&&navigator.deviceMemory<2)l=true;if(matchMedia('(prefers-reduced-motion: reduce)').matches)l=true;if(l)d.classList.add('perf-lite');})();</script>
 </head>
 <body>
 
@@ -63,6 +64,12 @@
       </p>
     </div>
     <div class="hero__isotipo" aria-hidden="true" data-parallax data-assemble></div>
+    <a href="#crece" class="hero__scroll-hint" aria-label="Ver más contenido">
+      <span>Scroll</span>
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
   </section>
 
   <!-- MARQUEE -->
@@ -76,7 +83,43 @@
   <!-- CRECE -->
   <section class="grow" id="crece">
     <div class="grow__canvas-wrap" data-grow-scale>
-      <canvas class="grow__canvas" data-flower-sequence aria-hidden="true"></canvas>
+      <svg class="grow__bloom" data-flower-bloom viewBox="0 0 400 540" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+        <defs>
+          <radialGradient id="bloom-petal" cx="50%" cy="65%" r="60%">
+            <stop offset="0%"  stop-color="#c2e56a"/>
+            <stop offset="55%" stop-color="#8DB83A"/>
+            <stop offset="100%" stop-color="#5a7d24"/>
+          </radialGradient>
+          <radialGradient id="bloom-center" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"  stop-color="#f1f7c8"/>
+            <stop offset="70%" stop-color="#c2e56a"/>
+            <stop offset="100%" stop-color="#6f9a29"/>
+          </radialGradient>
+          <linearGradient id="bloom-stem" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%"  stop-color="#4d6b1f"/>
+            <stop offset="100%" stop-color="#8DB83A"/>
+          </linearGradient>
+        </defs>
+        <!-- ground shadow -->
+        <ellipse class="bloom__ground" cx="200" cy="518" rx="130" ry="10"/>
+        <!-- stem -->
+        <path class="bloom__stem" d="M200,520 C200,430 190,340 200,240"/>
+        <!-- leaves -->
+        <path class="bloom__leaf bloom__leaf--left"
+              d="M200,380 C150,360 118,336 108,300 C142,296 176,320 200,380 Z"/>
+        <path class="bloom__leaf bloom__leaf--right"
+              d="M200,340 C244,318 274,296 288,266 C258,262 224,286 200,340 Z"/>
+        <!-- flower head: petals radiate from (200,220), then center disc -->
+        <g class="bloom__head" transform="translate(200 220)">
+          <ellipse class="bloom__petal" style="--rot:0deg;   --start:.35" cx="0" cy="-56" rx="28" ry="58"/>
+          <ellipse class="bloom__petal" style="--rot:60deg;  --start:.40" cx="0" cy="-56" rx="28" ry="58"/>
+          <ellipse class="bloom__petal" style="--rot:120deg; --start:.45" cx="0" cy="-56" rx="28" ry="58"/>
+          <ellipse class="bloom__petal" style="--rot:180deg; --start:.50" cx="0" cy="-56" rx="28" ry="58"/>
+          <ellipse class="bloom__petal" style="--rot:240deg; --start:.55" cx="0" cy="-56" rx="28" ry="58"/>
+          <ellipse class="bloom__petal" style="--rot:300deg; --start:.60" cx="0" cy="-56" rx="28" ry="58"/>
+          <circle class="bloom__center" cx="0" cy="0" r="20"/>
+        </g>
+      </svg>
     </div>
     <div class="container">
       <div class="grow__inner">
@@ -288,8 +331,64 @@
     </div>
   </section>
 
+  <!-- PORTFOLIO PREVIEW: 3D carousel of real client sites. Drag to rotate,
+       click a card to open a lightbox. Full portfolio lives at /portafolio/ —
+       this section only teases 4 recent projects on the home page. -->
+  <section class="section section--dark carousel-section" id="trabajo-reciente">
+    <div class="container">
+      <div class="section__head reveal">
+        <span class="tag">Trabajo reciente</span>
+        <h2>Marcas en producción, <span class="accent">ahora mismo.</span></h2>
+      </div>
+      <div class="carousel3d" data-carousel-3d aria-label="Trabajo reciente — arrastra para explorar, click para visitar">
+        <div class="c3d__stage">
+          <div class="c3d__track">
+            <a class="c3d__card" href="https://multalibre.co" target="_blank" rel="noopener" draggable="false">
+              <img src="/assets/img/portfolio/multalibre.jpg" alt="MultaLibre — prescripción de fotomultas en Medellín" loading="lazy" draggable="false">
+              <span class="c3d__card-label"><span>MultaLibre</span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+            <a class="c3d__card" href="https://casa-la37.vercel.app" target="_blank" rel="noopener" draggable="false">
+              <img src="/assets/img/portfolio/casala37.jpg" alt="Casa La37 — portal de administración inmobiliaria" loading="lazy" draggable="false">
+              <span class="c3d__card-label"><span>Casa La37</span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+            <a class="c3d__card" href="https://andrestobon.co" target="_blank" rel="noopener" draggable="false">
+              <img src="/assets/img/portfolio/andrestobon.jpg" alt="Andrés Tobón — Concejal de Medellín" loading="lazy" draggable="false">
+              <span class="c3d__card-label"><span>Andrés Tobón</span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+            <a class="c3d__card" href="https://coordinacion-electoral.vercel.app" target="_blank" rel="noopener" draggable="false">
+              <img src="/assets/img/portfolio/coordinacionelectoral.jpg" alt="Coordinación Electoral — Abelardo de la Espriella 2026" loading="lazy" draggable="false">
+              <span class="c3d__card-label"><span>Coordinación Electoral</span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+            <a class="c3d__card" href="https://multalibre.co" target="_blank" rel="noopener" draggable="false">
+              <img src="/assets/img/portfolio/multalibre.jpg" alt="MultaLibre — prescripción de fotomultas en Medellín" loading="lazy" draggable="false">
+              <span class="c3d__card-label"><span>MultaLibre</span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+            <a class="c3d__card" href="https://casa-la37.vercel.app" target="_blank" rel="noopener" draggable="false">
+              <img src="/assets/img/portfolio/casala37.jpg" alt="Casa La37 — portal de administración inmobiliaria" loading="lazy" draggable="false">
+              <span class="c3d__card-label"><span>Casa La37</span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+            <a class="c3d__card" href="https://andrestobon.co" target="_blank" rel="noopener" draggable="false">
+              <img src="/assets/img/portfolio/andrestobon.jpg" alt="Andrés Tobón — Concejal de Medellín" loading="lazy" draggable="false">
+              <span class="c3d__card-label"><span>Andrés Tobón</span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+            <a class="c3d__card" href="https://coordinacion-electoral.vercel.app" target="_blank" rel="noopener" draggable="false">
+              <img src="/assets/img/portfolio/coordinacionelectoral.jpg" alt="Coordinación Electoral — Abelardo de la Espriella 2026" loading="lazy" draggable="false">
+              <span class="c3d__card-label"><span>Coordinación Electoral</span><svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-section__foot">
+        <a href="/portafolio/" class="btn btn--ghost" data-magnetic>Ver todo el portafolio</a>
+      </div>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section class="section section--dark" id="contacto">
+    <!-- ambient watchman: large lime isotipo in the corner that subtly leans
+         toward the visitor's cursor. Decorative — aria-hidden. -->
+    <div class="contact__watchman" aria-hidden="true" data-cursor-track></div>
     <div class="container contact">
       <div class="section__head reveal">
         <span class="tag">04 — Contacto</span>
@@ -299,16 +398,34 @@
 
       <div class="contact__grid">
         <form class="contact__form reveal" id="contactForm">
-          <label>Nombre
-            <input type="text" name="nombre" id="fNombre" required placeholder="¿Cómo te llamas?">
+          <label class="field">
+            <input type="text" name="nombre" id="fNombre" required placeholder=" ">
+            <span class="field__label">¿Cómo te llamas?</span>
+            <span class="field__underline" aria-hidden="true"></span>
           </label>
-          <label>Negocio
-            <input type="text" name="negocio" id="fNegocio" placeholder="Nombre de tu marca o negocio">
+          <label class="field">
+            <input type="text" name="negocio" id="fNegocio" placeholder=" ">
+            <span class="field__label">Nombre de tu marca o negocio</span>
+            <span class="field__underline" aria-hidden="true"></span>
           </label>
-          <label>Cuéntanos qué necesitas
-            <textarea name="mensaje" id="fMensaje" rows="4" required placeholder="Branding, web, redes, WhatsApp Business..."></textarea>
+          <label class="field field--textarea">
+            <textarea name="mensaje" id="fMensaje" rows="4" required placeholder=" "></textarea>
+            <span class="field__label">Cuéntanos qué necesitas</span>
+            <span class="field__underline" aria-hidden="true"></span>
           </label>
-          <button type="submit" class="btn btn--primary btn--block" data-magnetic>Enviar por WhatsApp</button>
+          <button type="submit" class="btn btn--primary btn--block btn--arrow btn--spotlight" data-magnetic>
+            <span>Enviar por WhatsApp</span>
+            <svg class="btn__arrow" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <!-- Live preview of the WhatsApp message. Renders exactly what will
+               be sent when the form is submitted, updating character-by-character
+               as the user types. Hidden until there's something to preview. -->
+          <div class="contact__preview" data-preview aria-live="polite">
+            <span class="contact__preview-label">Vista previa</span>
+            <div class="contact__preview-bubble" data-preview-text></div>
+          </div>
         </form>
 
         <div class="contact__details reveal">
