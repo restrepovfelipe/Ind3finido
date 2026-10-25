@@ -377,6 +377,18 @@ revealSingle(document.querySelector(".flowchart__business"), { y: 16, delay: 0.3
   }
 })();
 
+/* ---------- Accent-word underline draw ----------
+   When any .section__head or .grow__inner enters the viewport, toggle
+   .is-drawn on it — the lime accent underline inside its H2 grows from
+   0% to 100% width via CSS transition. One-shot per element. */
+(function initAccentUnderline() {
+  const targets = document.querySelectorAll(".section__head, .grow__inner");
+  targets.forEach((el) => {
+    if (prefersReducedMotion) { el.classList.add("is-drawn"); return; }
+    inView(el, () => el.classList.add("is-drawn"), { amount: 0.35, margin: "0px 0px -60px 0px" });
+  });
+})();
+
 /* ---------- Hero phrase word rotator ----------
    Cycles the bracketed word in "Diseñamos [X] sin enredos." every 2.6s with
    a blur+slide swap. Static "marcas" stays visible under reduced-motion —
@@ -684,8 +696,13 @@ function formatCOP(n) {
 
 function countUp(el, { duration = 1.1 } = {}) {
   const target = Number(el.dataset.value || 0);
-  if (prefersReducedMotion) {
-    el.textContent = formatCOP(target);
+  const formatted = formatCOP(target);
+  // Counters are pre-populated in the HTML so no-JS visitors, crawlers,
+  // and any case where inView never fires still see the correct total
+  // (never a stray "$0"). If the DOM text already matches, skip the
+  // count-up — otherwise we'd flash down to $0 and back up.
+  if (prefersReducedMotion || el.textContent === formatted) {
+    el.textContent = formatted;
     return;
   }
   animate(0, target, {

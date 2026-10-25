@@ -78,6 +78,31 @@ p{ margin:0; text-wrap: pretty; }
 .container{ width:100%; max-width: var(--container); margin:0 auto; padding:0 24px; }
 .accent{ color: var(--lime); }
 
+/* accent-word underline draw — every .accent span inside a section-head H2
+   (or the grow-section H2) gets a lime underline that grows from 0 → 100%
+   width when the H2 enters the viewport. Uses a linear-gradient background
+   instead of ::after so multi-line accent phrases get per-line underlines
+   via box-decoration-break. */
+.section__head h2 .accent,
+.grow__inner h2 .accent{
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 3px;
+  padding-bottom: .08em;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+  transition: background-size .9s cubic-bezier(.16,.8,.24,1) .25s;
+}
+.section__head.is-drawn h2 .accent,
+.grow__inner.is-drawn h2 .accent{
+  background-size: 100% 3px;
+}
+@media (prefers-reduced-motion: reduce){
+  .section__head h2 .accent,
+  .grow__inner h2 .accent{ transition: none; background-size: 100% 3px; }
+}
+
 .skip-link{
   position:absolute; left:-999px; top:0; background:var(--lime); color:#111; padding:10px 16px; z-index:999; border-radius: 0 0 8px 0;
 }
@@ -233,7 +258,38 @@ p{ margin:0; text-wrap: pretty; }
   box-shadow: 0 10px 26px rgba(0,0,0,.4);
 }
 .nav__brand{ display:flex; align-items:center; gap:10px; font-family: var(--font-head); font-weight:700; font-size:1.15rem; color: var(--white); }
-.nav__icon{ width:26px; height:auto; }
+.nav__icon{
+  width:26px; height:auto;
+  transition: transform .55s cubic-bezier(.34,1.56,.64,1),
+              filter   .35s var(--ease);
+}
+.nav__brand:hover .nav__icon,
+.nav__brand:focus-visible .nav__icon{
+  transform: rotate(14deg);
+  filter: drop-shadow(0 0 8px rgba(141,184,58,.55));
+}
+/* the "3" in "Ind3finido" briefly scales when hovering the brand — small
+   detail that ties the isotipo (which shares that mark) to the wordmark */
+.nav__brand .accent{
+  display: inline-block; transform-origin: center;
+  will-change: transform, color;
+}
+.nav__brand:hover .accent,
+.nav__brand:focus-visible .accent{
+  animation: nav-brand-pulse .8s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes nav-brand-pulse{
+  0%   { transform: scale(1); }
+  45%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce){
+  .nav__icon{ transition: none; }
+  .nav__brand:hover .nav__icon{ transform: none; }
+  .nav__brand:hover .accent{ animation: none; }
+}
+.perf-lite .nav__icon{ transition: none; }
+.perf-lite .nav__brand:hover .accent{ animation: none; }
 .nav__links{ display:flex; align-items:center; gap:34px; }
 .nav__links a{ color: var(--white); font-weight:500; font-size:.95rem; opacity:.85; transition: opacity .2s; position:relative; }
 .nav__links a:not(.nav__cta):hover{ opacity:1; }
